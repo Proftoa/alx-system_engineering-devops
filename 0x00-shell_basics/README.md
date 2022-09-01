@@ -1,1 +1,1 @@
-Write a command that lists all the files and directorie
+Create a magic file school.mgc that
