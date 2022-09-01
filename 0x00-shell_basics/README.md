@@ -1,1 +1,1 @@
-Create a script that creates the directori
+Write a command that lists all the files and directorie
