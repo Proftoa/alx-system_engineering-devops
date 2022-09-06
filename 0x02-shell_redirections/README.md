@@ -1,1 +1,1 @@
-Display all the lines in the fil
+Display all lines of the fil
