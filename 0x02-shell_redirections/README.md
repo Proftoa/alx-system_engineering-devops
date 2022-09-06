@@ -1,1 +1,1 @@
-Display lines containing the patter
+Display all the lines in the fil
