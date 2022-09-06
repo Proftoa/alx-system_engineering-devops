@@ -1,1 +1,1 @@
-Display all lines of the file 
+Create a script that removes all lette
