@@ -1,1 +1,1 @@
-Display all lines of the fil
+Replace all characters A and c
