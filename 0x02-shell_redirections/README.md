@@ -1,1 +1,1 @@
-Create a script that removes all lett
+Write a script that reverse its input.
