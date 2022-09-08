@@ -1,1 +1,1 @@
-Write a script that prints every other line from the input, starting with the first line.
+Create a script that counts the number of directories in the PATH.
