@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Installs Nginx with the following configurations:
 #    Listens on port 80.
-#    Returns a page containing "Hello World" when queried
+# Returns a page containing "Hello World" when queried
 #    at the root with a curl GET request.
 
 # Install nginx
@@ -14,7 +14,7 @@ sudo ufw allow 'Nginx HTTP'
 
 # Creating Sample Page
 # touch /etc/nginx/html/index.html
- echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
 # Creating the Server Block File
 # echo "server { 
