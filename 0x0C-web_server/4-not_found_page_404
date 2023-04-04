@@ -28,5 +28,14 @@ sudo ufw allow 'Nginx HTTP'
 #}
 #" > /etc/nginx/sites-available/default
 
+# Add the following config to the existing sserver block
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/thedevmosh.tech permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Code for error 404
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+string_for_replacement="listen 80 default_server; \n\terror_page404 \/404.html;\n\tlocation= \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
 # start Nginx
-sudo service nginx start
+service nginx restart
