@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Installs Nginx with the following configurations:
+#    Listens on port 80.
+#    Returns a page containing "Hello World" when queried
+#    at the root with a curl GET request.
+
+# Install nginx
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+# Configuration
+sudo ufw allow 'Nginx HTTP'
+# mkdir etc/nginx/index.html*
+
+# Creating Sample Page
+# touch /etc/nginx/html/index.html
+ echo "Hello World!" > /var/www/html/index.html
+
+# Creating the Server Block File
+# echo "server { 
+#	listen 80 default_server;
+#	listen [::]:80 default_server;
+	
+#	root /etc/nginx/html;
+#	index index.html index.htm index.nginx-debian.html;
+
+#	server_name _;
+#}
+#" > /etc/nginx/sites-available/default
+
+# Add the following config to the existing sserver block
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/thedevmosh.tech permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Code for error 404
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+string_for_replacement="listen 80 default_server; \n\terror_page404 \/404.html;\n\tlocation= \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+#HTTP Reasponse header configuration(wrong location)
+#sudo sed -i '/^http{/a \\tadd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
+
+# start Nginx
+service nginx restart
