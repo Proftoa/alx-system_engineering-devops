@@ -33,19 +33,19 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend  ehoneah-frontend-http
+frontend  frontend-http
         bind *:80
         mode http
 	http-request set-header X-Forwarded-Proto http
-        default_backend ehoneah-backend
+        default_backend
 
-frontend ehoneah-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.ehoneah.tech.pem
+frontend frontend-https
+	bind *:443 ssl crt /etc/haproxy/certs/www.thedevmosh.tech.pem
 	http-request set-header X-Forwarded-Proto https
 	http-request redirect scheme https code 301 unless { ssl_fc }
-	default_backend ehoneah-backend
+	default_backend
 
-backend ehoneah-backend
+backend http-backend
         balance roundrobin
         server 137638-web-01 34.227.94.108:80 check
         server 137638-web-02 100.26.222.84:80 check
