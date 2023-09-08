@@ -43,6 +43,6 @@ frontend http_front
 
 backend http_back
         balance roundrobin
-        server 137638-web-01 34.227.94.108:80 check
-        server 137638-web-02 100.26.222.84:80 check
+        server 137638-web-01 100.24.255.26:80 check
+        server 137638-web-02 100.26.219.214:80 check
 
