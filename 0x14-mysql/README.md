@@ -2,7 +2,7 @@
 
 ## Tasks
 ### 0. Install MySQL
-- First things first, let’s get MySQL installed on both your web-01 and web-02 servers.
+- First things first, let’s get MySQL installed on both your web-01 and web-02 servers as well as check the version.
 
 ### 1. Let us in!
 - In order for us to verify that your servers are properly configured, we need you to create a user and password for both MySQL databases which will allow the checker access to them.
